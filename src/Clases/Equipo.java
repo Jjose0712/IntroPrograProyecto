@@ -6,7 +6,7 @@
 package Clases;
 
 /**
- *
+ *          Test for Geo
  * @author Jose
  */
 public final class Equipo {

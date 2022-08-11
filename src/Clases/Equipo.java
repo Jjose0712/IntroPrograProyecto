@@ -13,8 +13,6 @@ public final class Equipo {
     private String nombre;
     private Integrante[] integrantes;
     
-    
-    
     public Equipo(String pNombre,Integrante[] pIntegrantes){
       setNombre(pNombre);
       setIntegrantes(pIntegrantes);

@@ -10,38 +10,54 @@ package Clases;
  * @author Jose
  */
 public class Integrante {
-    private final String nombre;
-    private final String apellido;
-    private final int edad;
-    private final String pais;
+    private String nombre;
+    private String apellido;
+    private int edad;
+    private String pais;
 
     public Integrante(String pNombre,String pApellido,int pEdad,String pPais){
-       this.nombre = pNombre;
-       this.apellido = pApellido;
-       this.edad = pEdad;
-       this.pais = pPais;
+       setNombre(pNombre);
+       setApellido(pApellido);
+       setEdad(pEdad);
+       setPais(pPais);
     }
     
     public Integrante(Integrante pIntegrante){
-        this.nombre = pIntegrante.nombre;
-        this.apellido = pIntegrante.apellido;
-        this.edad = pIntegrante.edad;
-        this.pais = pIntegrante.pais;
+       setNombre(pIntegrante.nombre);
+       setApellido(pIntegrante.apellido);
+       setEdad(pIntegrante.edad);
+       setPais(pIntegrante.pais);
      }
     
-    public String obtenerNombre(){
+    private void setNombre(String pNombre) {
+        this.nombre = pNombre;
+    }
+    
+    private void setApellido(String pApellido) {
+        this.apellido = pApellido;
+    }
+    
+    private void setEdad(int pEdad) {
+        this.edad = pEdad;
+    }
+    
+    private void setPais(String pPais) {
+        this.nombre = pPais;
+    }
+    
+    public String getNombre(){
         return nombre;
     }
     
-    public String obtenerApellido(){
+    public String getApellido(){
         return apellido;
     }
     
-    public int obtenerEdad(){
+    public int getEdad(){
         return edad;
     }
     
-    public String obtenerPais(){
+    public String getPais(){
         return pais;
     }
 

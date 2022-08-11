@@ -13,28 +13,38 @@ public class Torneo {
     private String nombre;
     private Equipo[] equipos;
     private String fecha;
-    private Equipo equipo;
     
     public Torneo(String pNombre,Equipo[] pEquipos, String pFecha){
-      this.nombre = pNombre;
-      this.equipos = pEquipos;
-      this.fecha = pFecha;
+      setNombre(pNombre);
+      setEquipos(pEquipos);
+      setFecha(pFecha);
     }
     
-    public String obtenerNombre(){
-        return nombre;
+    private void setNombre(String pNombre) {
+        this.nombre = pNombre;
     }
     
-    public String obtenerFecha(){
-        return nombre;
+    private void setEquipos(Equipo[] pEquipos) {
+        this.equipos = pEquipos;
     }
     
-    public Equipo[] obtenerEquipos(){
-        return equipos;
+    private void setFecha(String pFecha) {
+        this.fecha = pFecha;
+    }
+    
+    public String getNombre() {
+        return this.nombre;
+    }
+    
+    public Equipo[] getEquipos() {
+        return this.equipos;
+    }
+    
+    public String getFecha() {
+        return this.fecha;
     }
     
     public void agregarEquipo(Equipo pEquipo){
-        equipo = new Equipo(pEquipo);
         for (int i = 0; i < this.equipos.length; i++) {
             this.equipos[i] = pEquipo;
         }

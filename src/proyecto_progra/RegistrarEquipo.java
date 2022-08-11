@@ -233,17 +233,27 @@ public class RegistrarEquipo extends javax.swing.JFrame {
         String edad = EdadIntegranteTxt.getText();
         String pais = PaisIntegranteTxt.getText();
         DefaultTableModel model = (DefaultTableModel) TableIntegrantesAdd.getModel();
-        if(Integer.parseInt(edad) < 18){
-            JOptionPane.showMessageDialog(null, "El integrante de ser mayor de edad.");
-        }
-        else if (nombre == "" || apellidos == "" || edad == "" || pais == ""){
-            JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios.");
-        }
-        else {
+        Boolean validacionUser = validarParticipante(nombre,apellidos,Integer.parseInt(edad),pais);
+        if(validacionUser){
+            
             model.addRow(new Object[]{NombreIntegranteTxt.getText(),ApellidoIntegranteTxt.getText(),EdadIntegranteTxt.getText(),PaisIntegranteTxt.getText()});
         }
+        else{
+            JOptionPane.showMessageDialog(null, "No se puede insertar el usuario, porfavor verifique que todos los campos esten llenos, o que el participante es mayor de edad.");
+        }
     }//GEN-LAST:event_AgregarIntegranteBtnMouseClicked
-
+    
+    private static Boolean validarParticipante(String pNombre, String pApellido, int pEdad, String pPais){
+        Boolean result;
+        if(pEdad < 18 || pNombre == "" || pApellido == "" || pEdad == 0 || pPais == ""){
+            result = false;
+        }
+        else{
+            result = true;
+        }
+        
+        return result;
+    } 
     /**
      * @param args the command line arguments
      */

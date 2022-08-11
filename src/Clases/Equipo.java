@@ -12,28 +12,34 @@ package Clases;
 public final class Equipo {
     private String nombre;
     private Integrante[] integrantes;
-    private Integrante integrante;
     
     public Equipo(String pNombre,Integrante[] pIntegrantes){
-      this.nombre = pNombre;
-      this.integrantes = pIntegrantes;
+      setNombre(pNombre);
+      setIntegrantes(pIntegrantes);
     }
     
     public Equipo(Equipo pEquipo){
-      this.nombre = pEquipo.nombre;
-      this.integrantes = pEquipo.integrantes;
+      setNombre(pEquipo.nombre);
+      setIntegrantes(pEquipo.integrantes);
     }
     
-    public String obtenerNombre(){
+    private void setNombre(String pNombre) {
+        this.nombre = pNombre;
+    }
+    
+    private void setIntegrantes(Integrante[] pIntegrantes) {
+        this.integrantes = pIntegrantes;
+    }
+    
+    public String getNombre(){
         return nombre;
     }
     
-    public Integrante[] obtenerIntegrantes(){
+    public Integrante[] getIntegrantes(){
         return integrantes;
     }
     
     public void agregarIntegrante(Integrante pIntegrante){
-        integrante = new Integrante(pIntegrante);
         for (int i = 0; i < this.integrantes.length; i++) {
             this.integrantes[i] = pIntegrante;
         }

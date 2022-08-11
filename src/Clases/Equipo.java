@@ -6,7 +6,6 @@
 package Clases;
 
 /**
- *          Test for Geo
  * @author Jose
  */
 public final class Equipo {
@@ -15,6 +14,7 @@ public final class Equipo {
     
     public Equipo(String pNombre,Integrante[] pIntegrantes){
       setNombre(pNombre);
+      //
       setIntegrantes(pIntegrantes);
     }
     

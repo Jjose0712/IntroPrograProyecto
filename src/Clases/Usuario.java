@@ -10,40 +10,50 @@ package Clases;
  * @author Jose
  */
 public class Usuario {
+    private int id;
     private String nombre;
-    private String apellido;
+    private String correo;
     private String contrasena;
     private String tipo;
     
-    public Usuario(String pNombre,String pApellido , String pContrasena, String pTipo){
+    public Usuario(int pId,String pNombre, String pCorreo, String pContrasena, String pTipo){
+        setId(pId);
         setNombre(pNombre);
-        setApellido(pApellido);
+        setCorreo(pCorreo);
         setContrasena(pContrasena);
         setTipo(pTipo);
     }
     
-    private void setNombre(String pNombre) {
+    private void setId(int pId) {
+        this.id = pId;
+    }
+    
+    public void setNombre(String pNombre) {
         this.nombre = pNombre;
     }
     
-    private void setApellido(String pApellido) {
-        this.apellido = pApellido;
+    public void setCorreo(String pCorreo) {
+        this.correo = pCorreo;
     }
     
     private void setContrasena(String pContrasena) {
-        this.nombre = pContrasena;
+        this.contrasena = pContrasena;
     }
     
-    private void setTipo(String pTipo) {
+    public void setTipo(String pTipo) {
         this.tipo = pTipo;
+    }
+    
+    public int getId() {
+        return this.id;
     }
     
     public String getNombre() {
         return this.nombre;
     }
     
-    public String getApellido() {
-        return this.apellido;
+    public String getCorreo() {
+        return this.correo;
     }
     
     public String getContrasena() {
@@ -55,12 +65,6 @@ public class Usuario {
     }
     
     public String obtenerNombreCompleto(){
-        return nombre + " " + apellido;
+        return nombre;
     }
 }
-
-enum TipoUsuario
-{
-    Admin, Juez, Participante;
-}
- 

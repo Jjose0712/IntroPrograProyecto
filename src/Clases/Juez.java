@@ -9,33 +9,37 @@ package Clases;
  *
  * @author Jose
  */
-public class Integrante {
+public class Juez {
+    private int id;
     private String nombre;
     private int edad;
-    private String pais;
+    private String torneo;
 
-    public Integrante(String pNombre,int pEdad,String pPais){
+    public Juez(int pId,String pNombre,int pEdad,String pTorneo){
+       setId(pId);
        setNombre(pNombre);
        setEdad(pEdad);
-       setPais(pPais);
+       setTorneo(pTorneo);
     }
     
-    public Integrante(Integrante pIntegrante){
-       setNombre(pIntegrante.nombre);
-       setEdad(pIntegrante.edad);
-       setPais(pIntegrante.pais);
-     }
+    private void setId(int pId) {
+        this.id = pId;
+    }
     
-    private void setNombre(String pNombre) {
+    public void setNombre(String pNombre) {
         this.nombre = pNombre;
     }
     
-    private void setEdad(int pEdad) {
+    public void setEdad(int pEdad) {
         this.edad = pEdad;
     }
     
-    private void setPais(String pPais) {
-        this.pais = pPais;
+    public void setTorneo(String pTorneo) {
+        this.torneo = pTorneo;
+    }
+    
+    public int getId() {
+        return this.id;
     }
     
     public String getNombre(){
@@ -46,7 +50,7 @@ public class Integrante {
         return edad;
     }
     
-    public String getPais(){
-        return pais;
+    public String getTorneo(){
+        return torneo;
     }
 }

@@ -5,6 +5,8 @@
  */
 package proyecto_progra;
 
+import Clases.Torneo;
+
 /**
  *
  * @author Jose
@@ -15,6 +17,10 @@ public class RegistrarTorneo extends javax.swing.JFrame {
      * Creates new form RegistrarEquipo
      */
     public RegistrarTorneo() {
+        initComponents();
+    }
+    
+    public RegistrarTorneo(Torneo pTorneo) {
         initComponents();
     }
 
@@ -36,11 +42,8 @@ public class RegistrarTorneo extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         NombreEquipoTorneoTxt = new javax.swing.JTextField();
-        AgregarEquipoBtn = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         TableTorneosAdd = new javax.swing.JTable();
-        GuardarTorneoBtn = new javax.swing.JButton();
-        CancelarTornoBtn = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         FechaTorneoTxt = new javax.swing.JTextField();
 
@@ -92,13 +95,6 @@ public class RegistrarTorneo extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel4.setText("Nombre:");
 
-        AgregarEquipoBtn.setText("Agregar equipo");
-        AgregarEquipoBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                AgregarEquipoBtnMouseClicked(evt);
-            }
-        });
-
         TableTorneosAdd.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
@@ -127,10 +123,6 @@ public class RegistrarTorneo extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(TableTorneosAdd);
 
-        GuardarTorneoBtn.setText("Guardar Torneo");
-
-        CancelarTornoBtn.setText("Cancelar");
-
         jLabel8.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel8.setText("Fecha del Torneo:");
 
@@ -142,15 +134,6 @@ public class RegistrarTorneo extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(AgregarEquipoBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(GuardarTorneoBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(CancelarTornoBtn))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -167,7 +150,8 @@ public class RegistrarTorneo extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(NombreTorneoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel3))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -189,22 +173,12 @@ public class RegistrarTorneo extends javax.swing.JFrame {
                     .addComponent(NombreEquipoTorneoTxt)
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(AgregarEquipoBtn)
-                .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(GuardarTorneoBtn)
-                    .addComponent(CancelarTornoBtn))
-                .addGap(20, 20, 20))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void AgregarEquipoBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarEquipoBtnMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AgregarEquipoBtnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -243,10 +217,7 @@ public class RegistrarTorneo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AgregarEquipoBtn;
-    private javax.swing.JButton CancelarTornoBtn;
     private javax.swing.JTextField FechaTorneoTxt;
-    private javax.swing.JButton GuardarTorneoBtn;
     private javax.swing.JTextField NombreEquipoTorneoTxt;
     private javax.swing.JTextField NombreTorneoTxt;
     private javax.swing.JTable TableTorneosAdd;

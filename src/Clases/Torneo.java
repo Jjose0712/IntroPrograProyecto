@@ -10,17 +10,23 @@ package Clases;
  * @author Jose
  */
 public class Torneo {
+    private int id;
     private String nombre;
     private Equipo[] equipos;
     private String fecha;
     
-    public Torneo(String pNombre,Equipo[] pEquipos, String pFecha){
+    public Torneo(int pId,String pNombre,Equipo[] pEquipos, String pFecha){
+      setId(pId);
       setNombre(pNombre);
       setEquipos(pEquipos);
       setFecha(pFecha);
     }
     
-    private void setNombre(String pNombre) {
+    private void setId(int pId) {
+        this.id = pId;
+    }
+    
+    public void setNombre(String pNombre) {
         this.nombre = pNombre;
     }
     
@@ -28,8 +34,12 @@ public class Torneo {
         this.equipos = pEquipos;
     }
     
-    private void setFecha(String pFecha) {
+    public void setFecha(String pFecha) {
         this.fecha = pFecha;
+    }
+    
+    public int getId() {
+        return this.id;
     }
     
     public String getNombre() {

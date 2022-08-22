@@ -9,17 +9,24 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import Clases.Equipo;
 import Clases.Integrante;
+import java.util.Random;
 
 /**
  *
  * @author Jose
  */
 public class RegistrarEquipo extends javax.swing.JFrame {
-    Object[] integrantes;
     /**
      * Creates new form RegistrarEquipo
      */
+    private Equipo equipo;
+    private String titulo;
+    private Integrante[] integrantes;
     public RegistrarEquipo() {
+        initComponents();
+    }
+    
+    public RegistrarEquipo(Equipo pEquipo) {
         initComponents();
     }
 
@@ -35,7 +42,7 @@ public class RegistrarEquipo extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        Titulotxt = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         NombreEquipoTxt = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -47,11 +54,8 @@ public class RegistrarEquipo extends javax.swing.JFrame {
         EdadIntegranteTxt = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         PaisIntegranteTxt = new javax.swing.JTextField();
-        AgregarIntegranteBtn = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         TableIntegrantesAdd = new javax.swing.JTable();
-        GuardarEquipoBtn = new javax.swing.JButton();
-        CancelarEquipoBtn = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -70,8 +74,8 @@ public class RegistrarEquipo extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(98, 98, 221));
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel1.setText("Equipo");
+        Titulotxt.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        Titulotxt.setText("Equipo");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -79,14 +83,14 @@ public class RegistrarEquipo extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jLabel1)
+                .addComponent(Titulotxt)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(Titulotxt)
                 .addContainerGap())
         );
 
@@ -109,13 +113,6 @@ public class RegistrarEquipo extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel7.setText("Pais:");
-
-        AgregarIntegranteBtn.setText("Agregar participante");
-        AgregarIntegranteBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                AgregarIntegranteBtnMouseClicked(evt);
-            }
-        });
 
         TableIntegrantesAdd.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -142,10 +139,6 @@ public class RegistrarEquipo extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(TableIntegrantesAdd);
 
-        GuardarEquipoBtn.setText("Guardar Equipo");
-
-        CancelarEquipoBtn.setText("Cancelar");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -154,11 +147,6 @@ public class RegistrarEquipo extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(NombreEquipoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel3)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -180,15 +168,15 @@ public class RegistrarEquipo extends javax.swing.JFrame {
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(PaisIntegranteTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(AgregarIntegranteBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(GuardarEquipoBtn)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(CancelarEquipoBtn)))))
+                                .addComponent(NombreEquipoTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel3)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -213,47 +201,18 @@ public class RegistrarEquipo extends javax.swing.JFrame {
                     .addComponent(EdadIntegranteTxt)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(PaisIntegranteTxt))
-                .addGap(18, 18, 18)
-                .addComponent(AgregarIntegranteBtn)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(GuardarEquipoBtn)
-                    .addComponent(CancelarEquipoBtn))
-                .addGap(20, 20, 20))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AgregarIntegranteBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarIntegranteBtnMouseClicked
-        String nombre = NombreIntegranteTxt.getText();
-        String apellidos = ApellidoIntegranteTxt.getText();
-        String edad = EdadIntegranteTxt.getText();
-        String pais = PaisIntegranteTxt.getText();
-        DefaultTableModel model = (DefaultTableModel) TableIntegrantesAdd.getModel();
-        Boolean validacionUser = validarParticipante(nombre,apellidos,Integer.parseInt(edad),pais);
-        if(validacionUser){
-            
-            model.addRow(new Object[]{NombreIntegranteTxt.getText(),ApellidoIntegranteTxt.getText(),EdadIntegranteTxt.getText(),PaisIntegranteTxt.getText()});
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "No se puede insertar el usuario, porfavor verifique que todos los campos esten llenos, o que el participante es mayor de edad.");
-        }
-    }//GEN-LAST:event_AgregarIntegranteBtnMouseClicked
-    
-    private static Boolean validarParticipante(String pNombre, String pApellido, int pEdad, String pPais){
-        Boolean result;
-        if(pEdad < 18 || pNombre == "" || pApellido == "" || pEdad == 0 || pPais == ""){
-            result = false;
-        }
-        else{
-            result = true;
-        }
-        
-        return result;
-    } 
+    public Equipo getEquipo(){
+        return this.equipo;
+    }
+       
     /**
      * @param args the command line arguments
      */
@@ -290,16 +249,13 @@ public class RegistrarEquipo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AgregarIntegranteBtn;
     private javax.swing.JTextField ApellidoIntegranteTxt;
-    private javax.swing.JButton CancelarEquipoBtn;
     private javax.swing.JTextField EdadIntegranteTxt;
-    private javax.swing.JButton GuardarEquipoBtn;
     private javax.swing.JTextField NombreEquipoTxt;
     private javax.swing.JTextField NombreIntegranteTxt;
     private javax.swing.JTextField PaisIntegranteTxt;
     private javax.swing.JTable TableIntegrantesAdd;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel Titulotxt;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

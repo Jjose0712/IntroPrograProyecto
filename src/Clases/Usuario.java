@@ -7,7 +7,7 @@ package Clases;
 
 /**
  *
- * @author Jose
+ * @author Daniel
  */
 public class Usuario {
     private int id;

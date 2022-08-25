@@ -203,10 +203,10 @@ public class Main extends javax.swing.JFrame {
             }
         });
         PanelIndicaciones.add(CerrarIndicaciones);
-        CerrarIndicaciones.setBounds(130, 220, 65, 25);
+        CerrarIndicaciones.setBounds(130, 220, 100, 25);
 
         JuezInternalFrame.getContentPane().add(PanelIndicaciones);
-        PanelIndicaciones.setBounds(270, 60, 370, 250);
+        PanelIndicaciones.setBounds(190, 60, 370, 250);
 
         jPanel7.setBackground(new java.awt.Color(98, 98, 221));
 

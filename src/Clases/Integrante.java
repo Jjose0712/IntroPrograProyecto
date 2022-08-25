@@ -7,7 +7,7 @@ package Clases;
 
 /**
  *
- * @author Jose
+ * @author Geo
  */
 public class Integrante {
     private String nombre;
